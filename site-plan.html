@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Site Plan</title>
+</head>
+
+<body>
+  <header>
+    <h1>Study Buddy Site Plan</h1>
+    <!-- In the header above, add the name of your site, your name and class number. For example if you are in section 3 you would put WDD 130-03 -->
+  </header>
+  <main>
+    <!-- ------------------------Steps 2-5------------------------------ -->
+    <hr />
+    
+    <h3>Website Logo</h3>
+    <!-- Replace this with some sort of logo for your site.  A logo can be as simple as the name of your site in a nice font :) -->
+    <img src="media/jared.PNG" alt="Logo image" />
+    <hr />
+    <h2>Style Guide</h2>
+
+    <!-- ------------------------Steps 6-9------------------------------ -->
+
+    <h3>Color Palette</h3>
+    <!--  The colors you choose for a website are one of the most important decisions you will make. You should have at least 2 colors but do not have to fill in all 4 if you do not need them.  -->
+    
+    <table class="colors">
+      <tr>
+        <th>Primary</th>
+        <th>Secondary</th>
+        <th>Accent 1</th>
+        <th>Accent 2</th>
+        <th>Accent 3</th>
+        <th>Accent 4</th>
+      </tr>
+      
+      <tr>
+        <td class="primary"></td>
+        <td class="secondary"></td>
+        <td class="accent1"></td>
+        <td class="accent2"></td>
+        <td class="accent3"></td>
+        <td class="accent4"></td>
+      </tr>
+    </table>
+
+    <!-- ------------------------Steps 10-12------------------------------ -->
+
+    <h3>Typography</h3>
+    <!-- Choose a font for your paragraphs (body copy) and headlines. What font(s) have you chosen? Think also about which of your colors above you might use for background and font colors. -->
+
+    <h4>
+      Heading Font: Leckerli One
+      <!-- change this -->
+    </h4>
+    <h4 class="paragraph">
+      Paragraph Font: Montserrat Alternates
+      <!-- change this -->
+    </h4>
+    <h3>Normal paragraph example</h3>
+    <p>
+      Study Buddy is a website created to help student make connections and improve their study habits.
+    </p>
+    <h3>Colored paragraph example</h3>
+    <p class="colored">
+        This website will use profiles created by students to match them with others. This matching will be done based off of their major, times avaiable to study, study type preference, and personal interests. The goal of this system is to help students make connections with each other while also promoting better study habits to improve their grades.
+    </p>
+
+    <!-- ------------------------Step 13------------------------------ -->
+
+    <!-- Think about how you want your navigation bar to look. In the site-plan.css file change the colors to your colors to get the look you desire. -->
+   
+    <hr />
+    <h2>Wireframes</h2>
+    <!-- Create an additional wireframe for your site. List it here below the Home page wireframe. -->
+
+    <h3>Home</h3>
+
+    <img src="media/Home.png" alt="home page wireframe" />
+
+    <h3>Login Page</h3>
+
+    <img src="media/Login.png" alt="login page wireframe" />
+
+    <h3>Create Account Page</h3>
+
+    <img src="media/Create.png" alt="create account page wireframe" />
+
+    <h3>Profile Home Page</h3>
+
+    <img src="media/Profile.png" alt="profile home page wireframe" />
+
+    <!-- <img src="#" alt="page 2 wireframe"> -->
+  </main>
+</body>
+
+</html>
+
+<style>
+/* if you are using any Google fonts change the font names below to your fonts. 
+Any spaces in your font name should be replaced with a +. 
+Fonts are separated by a & */
+@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800');
+:root {
+  /* change the values below to your colors from your palette */
+  --primary-color: #2d728f;
+  --secondary-color: #3b8ea5;
+  --accent1-color: #f7f5e6;
+  --accent2-color: #f5ee9e;
+  --accent3-color: #f49e4c;
+  --accent4-color: #ab3428;
+
+  /* change the values below to your chosen font(s) */
+  --heading-font: "Leckerli One";
+  --paragraph-font: "Montserrat Alternates";
+
+  /* these colors below should be chosen from among your palette colors above */
+  --headline-color-on-white: black;  /* headlines on a white background */ 
+  --headline-color-on-color: white; /* headlines on a colored background */ 
+  --paragraph-color-on-white: black; /* paragraph text on a white background */ 
+  --paragraph-color-on-color: white; /* paragraph text on a colored background */ 
+  --paragraph-background-color: #ab3428;
+  --body-background-color: #f7f5e6;
+}
+
+
+/*  Look around below...but DON'T CHANGE ANYTHING! */
+
+body {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 4em;
+  font-size: 18px;
+  text-align: center;
+}
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 300px;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  color: var(--headline-color-on-white);
+}
+.paragraph {
+    font-family: "Montserrat Alternates";
+}
+h2 {
+  text-align: center;
+}
+hr {
+  height: 3px;
+  margin: 35px 0;
+  background: var(--accent1-color);
+}
+header {
+  padding: 1em;
+  text-align: center;
+  color: var(--headline-color-on-color);
+  background-color: var(--paragraph-background-color);
+}
+header > h1, header > h2 {
+  color: var(--headline-color-on-color);
+}
+p {
+  font-family: var(--paragraph-font);
+  color: var(--paragraph-color-on-white);
+  padding: 1em;
+}
+.colors {
+  width: 100%;
+  min-width: 350px;
+  margin: 30px auto;
+  text-align: center;
+}
+.colors th {
+  background-color: #999;
+}
+.colors td{
+  width: 10%;
+  height: 3em;
+}
+.primary {
+  background-color: var(--primary-color);
+}
+.secondary {
+  background-color: var(--secondary-color);
+}
+.accent1 {
+  background-color: var(--accent1-color);
+}
+.accent2{
+  background-color: var(--accent2-color);
+}
+.accent3{
+    background-color: var(--accent3-color);
+}
+.accent4{
+    background-color: var(--accent4-color);
+}
+p.colored {
+  background-color: var(--paragraph-background-color);
+  color: var(--paragraph-color-on-color);
+}
+nav {
+  background-color: var(--nav-background-color);
+  line-height: 3em;
+  text-align: center;
+  font-size: 1.2em;
+  font-family: "Sour Gummy"
+}
+nav  {
+  list-style-type: none;
+  display: flex;
+}
+nav a {
+  padding:1em;
+  min-width: 120px;
+  text-decoration: none;
+  padding: 10px;
+}
+nav a:link, nav a:visited {
+  color: var(--nav-link-color);
+}
+nav a:hover {
+  color: var(--nav-hover-link-color);
+  background-color: var(--nav-hover-background-color);
+}
+.sitemap {
+  display: grid;
+  justify-content: center;
+
+  grid-template-columns: repeat(6, 15%);
+  grid-template-rows: 3em 1.5em 1.5em 3em;
+  grid-template-areas: ". . home home . ."
+    ". . . top . ."
+    ".left . center right ."
+    "page2 page2 page3 page3 page4 page4";
+}
+.sitemap > div {
+  text-align: center;
+}
+.sm-home {
+  grid-area: home;
+  background-color: #ccc;
+  line-height: 3em;
+}
+.sm-page2 {
+  grid-area: page2;
+  background-color: #ccc;
+  line-height: 3em;
+}
+.sm-page3 {
+  grid-area: page3;
+  background-color: #ccc;
+  line-height: 3em;
+}
+.sm-page4 {
+    grid-area: page4;
+    background-color: #ccc;
+    line-height: 3em;
+}
+.top {
+  grid-area: top;
+  border-left: 1px solid;
+}
+.left {
+  grid-area: left;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+.right {
+  grid-area: right;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+</style>
