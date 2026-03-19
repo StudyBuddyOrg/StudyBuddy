@@ -1,17 +1,1 @@
-{
-  "firestore": {
-    "database": "(default)",
-    "location": "nam5",
-    "rules": "firestore_rules",
-    "indexes": "firestore_index"
-  },
-  "auth": {
-    "providers": {
-      "emailPassword": true,
-      "googleSignIn": {
-        "oAuthBrandDisplayName": "studybuddy",
-        "supportEmail": "support@undefined.firebaseapp.com"
-      }
-    }
-  }
-}
+
