@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;600&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Montserrat Alternates',sans-serif;
+  background:#e5e1d6;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+
+.container{
+  background:#a63127;
+  width:720px;
+  padding:30px 40px;
+  border-radius:12px;
+  color:white;
+}
+
+h1{margin-bottom:20px}
+
+label{
+  display:block;
+  font-size:13px;
+  margin-top:15px;
+  margin-bottom:6px;
+}
+
+input[type="text"], input[type="email"]{
+  width:100%;
+  padding:12px;
+  border-radius:6px;
+  border:1px solid rgba(255,255,255,0.3);
+  background:#b44a3e;
+  color:white;
+}
+
+.option{
+  background:#b44a3e;
+  padding:12px;
+  border-radius:6px;
+  margin-bottom:8px;
+}
+
+.option input{
+  margin-right:10px;
+}
+
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.day-block{
+  background:#b44a3e;
+  padding:10px;
+  border-radius:8px;
+}
+
+.day-block h4{
+  font-size:13px;
+  margin-bottom:5px;
+}
+
+button{
+  margin-top:25px;
+  width:100%;
+  padding:14px;
+  background:#e5df95;
+  border:none;
+  border-radius:20px;
+  color:white;
+  font-weight:bold;
+}
+
+.footer{
+  text-align:center;
+  font-size:10px;
+  margin-top:8px;
+  opacity:0.7;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Create Account</h1>
+
+  <label>Full Name</label>
+  <input type="text">
+
+  <label>Email address</label>
+  <input type="email">
+
+  <label>Major</label>
+  <select>
+    <option value="">Select your major</option>
+    <option>Accounting (B.S.)</option>
+    <option>Advanced Vehicle Systems (B.S.)</option>
+    <option>Agribusiness (B.S.)</option>
+    <option>Allied Health (A.S.)</option>
+    <option>Animal Science (A.S.)</option>
+    <option>Animal Science: Animal Agriculture Systems (B.S.)</option>
+    <option>Animal Science: Animal Science (B.S.)</option>
+    <option>Animal Science: Pre-Vet/Graduate (B.S.)</option>
+    <option>Apparel Entrepreneurship (B.S.)</option>
+    <option>Architectural Technology (A.A.S.)</option>
+    <option>Art Education Composite: Graphic Design (B.A.)</option>
+    <option>Art Education Composite: Drawing and Painting (B.A.)</option>
+    <option>Art Education Composite: Three Dimensional Studies (B.A.)</option>
+    <option>Art Education Composite: Photography (B.A.)</option>
+    <option>Art Education Composite: Illustration (B.A.)</option>
+    <option>Automotive Engineering Technology (B.S.)</option>
+    <option>Automotive Technology (A.A.S.)</option>
+    <option>Automotive Technology Management (B.S.)</option>
+    <option>Biochemistry (B.S.)</option>
+    <option>Biology: Bioinformatics (B.S.)</option>
+    <option>Biology: Biotechnology (B.S.)</option>
+    <option>Biology: Applied Lab Science (B.S.)</option>
+    <option>Biology: Microbiology (B.S.)</option>
+    <option>Biology: Neuroscience (B.S.)</option>
+    <option>Biomedical Science (B.S.)</option>
+    <option>Business Analytics (B.S.)</option>
+    <option>Business Management (B.S.)</option>
+    <option>Chemistry (B.S.)</option>
+    <option>Child Development (A.A.S.)</option>
+    <option>Child Development (B.S.)</option>
+    <option>Civil Engineering (B.S.)</option>
+    <option>Cloud Computing (A.A.S.)</option>
+    <option>Communication: Digital and Social Media (B.S.)</option>
+    <option>Communication: Visual Communication (B.S.)</option>
+    <option>Communication: Organizational Leadership</option>
+    <option>Communication: Video Production</option>
+    <option>Communication: Journalism (B.S.)</option>
+    <option>Communication: Public Relations (B.S.)</option>
+    <option>Computer Engineering (B.S.)</option>
+    <option>Computer Science (B.S.)</option>
+    <option>Construction Management (B.S.)</option>
+    <option>Construction Superintendency (A.A.S.)</option>
+    <option>Cybersecurity (B.S.)</option>
+    <option>Dance (B.A.)</option>
+    <option>Data Science (A.A.S.)</option>
+    <option>Data Science (B.S.)</option>
+    <option>Early Childhood Education / Early Childhood Special Education (B.A.)</option>
+    <option>Economics (B.S.)</option>
+    <option>Educational Foundations (A.A.S.)</option>
+    <option>Electrical and Computer Engineering (A.A.S.)</option>
+    <option>Electrical Engineering (B.S.)</option>
+    <option>Elementary Education (B.S.)</option>
+    <option>English (B.A.)</option>
+    <option>English Education (B.A.)</option>
+    <option>English Education Composite (B.A.)</option>
+    <option>Environmental Geoscience (B.S.)</option>
+    <option>Exercise and Rehabilitation Sciences (B.S.)</option>
+    <option>Finance (B.S.)</option>
+    <option>Financial Economics (B.S.)</option>
+    <option>Fine Art: 2D Emphasis (B.A.)</option>
+    <option>Fine Arts: Photography (B.A.)</option>
+    <option>Fine Art: 3D Emphasis (B.A.)</option>
+    <option>Fisheries, Range and Wildlife Management: Fisheries Emphasis (B.S.)</option>
+    <option>Fisheries, Range and Wildlife Management: Range Emphasis (B.S.)</option>
+    <option>Fisheries, Range, and Wildlife Management: Wildlife Emphasis (B.S.)</option>
+    <option>Floral Design (A.A.S.)</option>
+    <option>Food Science: Management (B.S.)</option>
+    <option>Food Sciences: Technology Emphasis (B.S.)</option>
+    <option>Food Science: Health Science (B.S.)</option>
+    <option>Food Science: Science (B.S.)</option>
+    <option>Food Science: Nutrition/Dietetics (B.S.)</option>
+    <option>General Studies (A.S.)</option>
+    <option>General Studies (B.S.)</option>
+    <option>Geology (B.S.)</option>
+    <option>Graphic Design: Branding and Identity Design (B.A.)</option>
+    <option>Graphic Design: UX/UI Design Emphasis (B.A.)</option>
+    <option>Graphic Design: Surface and Pattern Design Emphasis (B.A.)</option>
+    <option>Healthcare Administration (B.S.)</option>
+    <option>History (B.A.)</option>
+    <option>Horticulture (A.A.S.)</option>
+    <option>Horticulture (B.S.)</option>
+    <option>Humanities (B.A.)</option>
+    <option>Illustration: Entertainment Design Emphasis (B.A.)</option>
+    <option>Illustration: Publishing Emphasis (B.A.)</option>
+    <option>Interdisciplinary Studies (B.I.S.)</option>
+    <option>International Studies (B.A.)</option>
+    <option>Manufacturing Engineering Technology (B.S.)</option>
+    <option>Manufacturing Technology (A.A.S.)</option>
+    <option>Marketing (A.A.S.)</option>
+    <option>Marketing (B.S.)</option>
+    <option>Marriage and Family Studies (A.A.S.)</option>
+    <option>Marriage and Family Studies (B.S.)</option>
+    <option>Mathematics (B.S.)</option>
+    <option>Mathematics Education (B.S.)</option>
+    <option>Mechanical Engineering (B.S.)</option>
+    <option>Music: Jazz Studies Emphasis (B.M.)</option>
+    <option>Music: Organ Performance Emphasis (B.M.)</option>
+    <option>Music: Piano Performance Emphasis (B.M.)</option>
+    <option>Music: Woodwind, Brass or Percussion Performance Emphasis (B.M.)</option>
+    <option>Music: Vocal Performance Emphasis (B.M.)</option>
+    <option>Music: String Performance Emphasis (B.M.)</option>
+    <option>Music Education Composite: Band (B.M.Ed.)</option>
+    <option>Music Education Composite: Orchestra (B.M.Ed.)</option>
+    <option>Music Education Composite: Choral (B.M.Ed.)</option>
+    <option>Nursing: Pre-licensure (B.S.)</option>
+    <option>Occupational Safety and Health (B.S.)</option>
+    <option>Physical Therapist Assistant (A.A.S.)</option>
+    <option>Physics: Computational Emphasis (B.S.)</option>
+    <option>Physics: Mathematical Emphasis (B.S.)</option>
+    <option>Physics: Astronomy Emphasis (B.S.)</option>
+    <option>Physics: Engineering Emphasis (B.S.)</option>
+    <option>Plant Science & Technology (A.A.S.)</option>
+    <option>Plant Science & Technology (B.S.)</option>
+    <option>Political Science: Foreign Affairs (B.S.)</option>
+    <option>Political Science: American Government (B.S.)</option>
+    <option>Psychology: Industrial Organizational Emphasis (B.S.)</option>
+    <option>Psychology: Health Psychology Emphasis (B.S.)</option>
+    <option>Psychology: General Emphasis (B.S.)</option>
+    <option>Psychology: Behavioral Interventions Emphasis (B.S.)</option>
+    <option>Public Health: Health Promotion (B.S.)</option>
+    <option>Public Health: Health Science (B.S.)</option>
+    <option>Recreation Management (B.S.)</option>
+    <option>Social Work (B.S.)</option>
+    <option>Sociology (B.S.)</option>
+    <option>Software Engineering (B.S.)</option>
+    <option>Special Education K-12 Generalist (B.S.)</option>
+    <option>Statistics (B.S.)</option>
+    <option>Supply Chain Management (B.S.)</option>
+    <option>Theatre Studies: Design/Technical (B.A.)</option>
+    <option>Theatre Studies: Performance (B.A.)</option>
+    <option>Theatre Studies: Children's Theatre (B.A.)</option>
+    <option>Theatre Studies: Theatre Studies (B.A.)</option>
+    <option>Theatre Studies (A.A.)</option>
+    <option>Therapeutic Recreation (B.S.)</option>
+    <option>Virtual Design and Construction (B.S.)</option>
+    <option>Web Design & Development (A.A.S.)</option>
+    <option>Web Design & Development (B.S.)</option>
+    <option>Welding and Fabrication Technology (A.A.S.)</option>
+    <option>Welding Engineering Technology (B.S.)</option>
+  </select>
+
+  <label>Study Preference</label>
+  <div class="option"><input type="radio" name="study">Quiet Time</div>
+  <div class="option"><input type="radio" name="study">Social/Chatty</div>
+  <div class="option"><input type="radio" name="study">Mixed</div>
+
+  <label>Time(s) Available</label>
+  <div class="grid-3">
+    <div class="day-block">
+      <h4>Monday</h4>
+      <div><input type="checkbox"> morning</div>
+      <div><input type="checkbox"> afternoon</div>
+      <div><input type="checkbox"> evening</div>
+      <div><input type="checkbox"> any time</div>
+    </div>
+    <div class="day-block">
+      <h4>Tuesday</h4>
+      <div><input type="checkbox"> morning</div>
+      <div><input type="checkbox"> afternoon</div>
+      <div><input type="checkbox"> evening</div>
+      <div><input type="checkbox"> any time</div>
+    </div>
+    <div class="day-block">
+      <h4>Wednesday</h4>
+      <div><input type="checkbox"> morning</div>
+      <div><input type="checkbox"> afternoon</div>
+      <div><input type="checkbox"> evening</div>
+      <div><input type="checkbox"> any time</div>
+    </div>
+    <div class="day-block">
+      <h4>Thursday</h4>
+      <div><input type="checkbox"> morning</div>
+      <div><input type="checkbox"> afternoon</div>
+      <div><input type="checkbox"> evening</div>
+      <div><input type="checkbox"> any time</div>
+    </div>
+    <div class="day-block">
+      <h4>Friday</h4>
+      <div><input type="checkbox"> morning</div>
+      <div><input type="checkbox"> afternoon</div>
+      <div><input type="checkbox"> evening</div>
+      <div><input type="checkbox"> any time</div>
+    </div>
+    <div class="day-block">
+      <h4>Saturday</h4>
+      <div><input type="checkbox"> morning</div>
+      <div><input type="checkbox"> afternoon</div>
+      <div><input type="checkbox"> evening</div>
+      <div><input type="checkbox"> any time</div>
+    </div>
+  </div>
+
+  <label>Pick 6 interests:</label>
+  <div class="grid-3">
+    <div class="option"><input type="checkbox">History/Museums</div>
+    <div class="option"><input type="checkbox">Concerts</div>
+    <div class="option"><input type="checkbox">Fashion/Makeup</div>
+    <div class="option"><input type="checkbox">Running</div>
+    <div class="option"><input type="checkbox">Cooking/Baking</div>
+    <div class="option"><input type="checkbox">Dancing</div>
+    <div class="option"><input type="checkbox">Sports</div>
+    <div class="option"><input type="checkbox">Reading/Writing</div>
+    <div class="option"><input type="checkbox">Hiking</div>
+    <div class="option"><input type="checkbox">Animals/Pets</div>
+    <div class="option"><input type="checkbox">Video Games</div>
+    <div class="option"><input type="checkbox">Movies/TV</div>
+    <div class="option"><input type="checkbox">Instruments</div>
+    <div class="option"><input type="checkbox">Country music</div>
+    <div class="option"><input type="checkbox">Alternative/Rock music</div>
+    <div class="option"><input type="checkbox">Spiritual/Religious music</div>
+    <div class="option"><input type="checkbox">Pop music</div>
+    <div class="option"><input type="checkbox">Rap music</div>
+    <div class="option"><input type="checkbox">Travel</div>
+    <div class="option"><input type="checkbox">Theater</div>
+    <div class="option"><input type="checkbox">Arts/Crafts</div>
+  </div>
+
+  <button>Create Account</button>
+  <div class="footer">Your Canva profile name won't be shared. Never submit passwords.</div>
+</div>
+
+</body>
+</html>
