@@ -1,29 +1,94 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
+/* General Styles */
 body {
-  min-height: 100vh;
-  background: #f6f8ff;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  padding-top: 20px;
+    background-color: #f0ecd0; /* Light cream background from wireframe */
+    font-family: 'Montserrat Alternates', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
-.top-center {
-  width: 100%;
-  max-width: 900px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 14px;
+/* Typography */
+.login-title {
+    font-family: 'Leckerli One', cursive;
+    font-size: 3rem;
+    color: #000;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-.jared-image {
-  width: 180px;
-  height: auto;
+/* Login Card */
+.login-card {
+    background-color: #32738d; /* Teal/Blue color from your screenshot */
+    padding: 50px;
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    justify-content: center;
+    align-items: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #f6e866; /* Yellowish accent color for labels */
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #255a6e;
+    border-radius: 6px;
+    background-color: #fdfaf0;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+/* Button */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f6e866; /* Bright accent yellow from screenshot */
+    border: none;
+    border-radius: 20px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    background-color: #e5d64d;
+}
+
+/* Footer */
+
+.disclaimer {
+    font-size: 0.75rem;
+    color: #fdfaf0;
+    text-align: center;
+    margin-top: 15px;
+    line-height: 1.4;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-footer a {
+    color: #32738d;
+    text-decoration: none;
+    font-weight: bold;
 }
