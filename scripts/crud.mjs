@@ -6,6 +6,13 @@ async function addUser(first_nameP, last_nameP, ){
     await addDoc(collection(db, "users"), { first_name: first_nameP, last_name: last_nameP, age: 30 });
 }
 
+/* await addDoc(collection(db, "users"), {
+        first_name: first_nameP,
+        last_name: last_nameP,
+        email: email,
+        age: 30
+    }); -- Claude recommended adding this to the addUser function in order to make it work  */
+
 async function getUser(email) {
     const q = query(collection(db, "users"), where("email", "==", email));
     const snap = await getDocs(q);
