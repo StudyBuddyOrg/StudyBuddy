@@ -36,7 +36,7 @@ label{
   margin-bottom:6px;
 }
 
-input[type="text"], input[type="email"]{
+input[type="text"], input[type="email"], input[type="password"]{
   width:100%;
   padding:12px;
   border-radius:6px;
@@ -97,7 +97,15 @@ button{
   opacity:0.7;
 }
 
+button{
+  cursor: pointer;
+}
+
 </style>
+    <!-- Firebase SDK -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+</head>
 </head>
 
 <body>
@@ -105,11 +113,15 @@ button{
 <div class="container">
   <h1>Create Account</h1>
 
+  <form id="signupForm">
   <label>Full Name</label>
-  <input type="text">
+  <input type="text" id="fullName" required>
 
   <label>Email address</label>
-  <input type="email">
+  <input type="email" id="email" required>
+
+  <label>Password</label>
+  <input type="password" id="password" required>
 
   <label>Major</label>
   <select>
@@ -331,8 +343,10 @@ button{
     <div class="option"><input type="checkbox">Arts/Crafts</div>
   </div>
 
-  <button>Create Account</button>
-  <div class="footer">Your Canva profile name won't be shared. Never submit passwords.</div>
+  <button type="submit">Create Account</button>
+  </form>
+  <div id="message"></div>
+  <div class="footer"></div>
 </div>
 
 </body>
