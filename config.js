@@ -1,6 +1,5 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -11,9 +10,8 @@ const firebaseConfig = {
   projectId: "studybuddy-b1e01",
   storageBucket: "studybuddy-b1e01.firebasestorage.app",
   messagingSenderId: "755708087089",
-  appId: "1:755708087089:web:fc187b3b121fbbf6063e10"
+  appId: "1:755708087089:web:8e3885ae5e5cb9e1063e10"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
