@@ -8,14 +8,36 @@ import {
 } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 
-// Email sign up
-await createUserWithEmailAndPassword(auth, email, password);
+export async function signUp(params) {
+  const {user} = await createUserWithEmailAndPassword(auth, email, password);
+  return user;
+}
 
-// Email sign in
-await signInWithEmailAndPassword(auth, email, password);
 
-// Google sign in (one-liner)
-await signInWithPopup(auth, new GoogleAuthProvider());
+export async function signIn(email, password) {
+  const {user} = await signInWithEmailAndPassword(auth, email, password);
+  return user;
+}
 
-// Sign out
-await signOut(auth);
+export async function signUpWithGoogle(params) {
+  const {user} = await signInWithPopup(auth, new GoogleAuthProvider());
+  return user;
+}
+
+export async function logOut() {
+  await signOut(auth)
+}
+
+export {auth};
+
+// // Email sign up
+// await createUserWithEmailAndPassword(auth, email, password);
+
+// // Email sign in
+// await signInWithEmailAndPassword(auth, email, password);
+
+// // Google sign in (one-liner)
+// await signInWithPopup(auth, new GoogleAuthProvider());
+
+// // Sign out
+// await signOut(auth);

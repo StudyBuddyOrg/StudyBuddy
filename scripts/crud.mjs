@@ -2,6 +2,13 @@ import { db } from "./firebase";
 import { collection, addDoc, getDocs, doc, setDoc, deleteDoc } from "firebase/firestore";
 import { collection, getDocs, query, where } from "firebase/firestore"; /* Possibly to be added to the import above */
 
+// Internal helper — throws if no user is signed in
+function requireUser() {
+  const user = auth.currentUser;
+  if (!user) throw new Error("Not authenticated");
+  return user;
+}
+
 async function addUser(first_nameP, last_nameP, ){
     await addDoc(collection(db, "users"), { first_name: first_nameP, last_name: last_nameP, age: 30 });
 }
