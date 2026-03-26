@@ -1,4 +1,4 @@
-import { auth } from "./firebase";
+import { auth } from "./main.mjs";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 
-export async function signUp(params) {
+export async function signUp(email, password) {
   const {user} = await createUserWithEmailAndPassword(auth, email, password);
   return user;
 }
@@ -19,7 +19,7 @@ export async function signIn(email, password) {
   return user;
 }
 
-export async function signUpWithGoogle(params) {
+export async function signUpWithGoogle() {
   const {user} = await signInWithPopup(auth, new GoogleAuthProvider());
   return user;
 }

@@ -114,14 +114,37 @@ button{
   <h1>Create Account</h1>
 
   <form id="signupForm">
-  <label>Full Name</label>
-  <input type="text" id="fullName" required>
+  <label>First Name</label>
+  <input type="text" id="firstName" required>
+
+  <label>Last Name</label>
+  <input type="text" id="lastName" required>
 
   <label>Email address</label>
   <input type="email" id="email" required>
 
   <label>Password</label>
   <input type="password" id="password" required>
+
+  <label>Date of Birth</label>
+  <input type="date" id="dob" required>
+
+  <label>Semester</label>
+  <select id="semester" required>
+    <option value="">Select semester</option>
+    <option>Fall</option>
+    <option>Winter</option>
+    <option>Spring</option>
+    <option>Summer</option>
+  </select>
+
+  <label>Gender</label>
+  <select id="gender" required>
+    <option value="">Select gender</option>
+    <option>Male</option>
+    <option>Female</option>
+    <option>Other</option>
+  </select>
 
   <label>Major</label>
   <select>
@@ -348,6 +371,8 @@ button{
   <div id="message"></div>
   <div class="footer"></div>
 </div>
+
+<script type="module" src="signup_script.js"></script>
 
 </body>
 </html>
