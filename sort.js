@@ -22,7 +22,7 @@ class Student {
    * @param {string} studyType   - "quiet" | "social" | "mixed"
    * @param {string} major       - Free text, will be normalized before comparison.
    * @param {string[]} interests - Array of interest strings from a fixed list.
-   * @param {int} grade - 0: Freshman, 1: Sophmore, 2: Junior, 3: Senior
+   * @param {int} grade          - Represents the semester
    */
   constructor(
     timeRanges = {},
@@ -144,12 +144,19 @@ function scoreInterests(a, b) {
 }
 
 
+
+/**GRADE SCORE
+ * If the match is within a semester ahead or behind, full credit
+ * If the match is within 4 semesters ahead or behind, half credit
+ * Else, No credit
+ * Range 0.0 - 1.0
+ * */
 function scoreGrade(a, b){
-  if (a.grade==b.grade) 
+  if (a.grade<=(b.grade+1) && a.grade>=(b.grade-1)) 
   {
     return 1;
   }
-  if (a.grade==(b.grade+1) || a.grade==(b.grade-1)) return .5;
+  else if (a.grade<=(b.grade+4) || a.grade>=(b.grade-4)) return .5;
   return 0
 
 }
