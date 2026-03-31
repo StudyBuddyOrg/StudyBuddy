@@ -12,7 +12,19 @@ function requireUser() {
 
 async function addUser(userData) {
   const user = requireUser();
-  await setDoc(doc(db, "users", user.uid), userData);
+  const dataToSave = userData instanceof User ? userData.toPlainObject() : userData;
+  try {
+    await setDoc(doc(db, "users", user.uid), {
+      ...dataToSave,
+      uid: user.uid, // Ensures the ID is searchable inside the doc
+      updatedAt: new Date().toISOString() 
+    }, { merge: true });
+    
+    console.log("Profile successfully synced for:", user.uid);
+  } catch (error) {
+    console.error("Failed to add user to Firestore:", error);
+    throw error;
+  }
 }
 
 async function getUserByEmail(email) {
