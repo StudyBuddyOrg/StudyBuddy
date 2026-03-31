@@ -92,6 +92,30 @@ body {
     text-decoration: none;
     font-weight: bold;
 }
+<<<<<<< HEAD
+/* Sidebar container with space from the left edge */
+.stripe-sidebar {
+    position: fixed;
+    top: 0;
+    left: 40px; /* The "little space to the left" you requested */
+    width: 100px; /* Makes the stripes "bigger" overall */
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    z-index: -1;
+}
+
+.v-line {
+    flex: 1;
+    height: 100%;
+}
+
+/* Exact Color Match from 1.png */
+.color-1 { background-color: #f49e4c; } /* Dark Teal */
+.color-2 { background-color: #ab3428; } /* Light Teal */
+.color-3 { background-color: #f5ee9e; } /* Yellow */
+.color-4 { background-color: #ab3428; } /* Orange */
+=======
 
 .stripebox {
     width: 90px;
@@ -132,3 +156,4 @@ body {
     background-color: #3B8EA5;
     width: 15px;
 }
+>>>>>>> 875f265b77f59c423e6dfa16d0402d7eae46279a
