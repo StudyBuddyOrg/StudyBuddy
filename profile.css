@@ -1,0 +1,248 @@
+/* =============================
+   CSS Variables & Reset
+   ============================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-page:       #f7f5e6;
+  --teal:          #3a8fa3;
+  --teal-dark:     #2d7a8e;
+  --orange:        #e8922a;
+  --orange-dark:   #d4821e;
+  --orange-text:   #7a3e00;
+  --white:         #ffffff;
+  --shadow:        0 4px 16px rgba(0,0,0,0.15);
+  --radius-lg:     18px;
+  --radius-md:     12px;
+  --radius-sm:     8px;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--bg-page);
+  min-height: 100vh;
+  padding: 24px 32px 48px;
+}
+
+/* =============================
+   Profile Bar (Header)
+   ============================= */
+.profile-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--teal);
+  border-radius: var(--radius-lg);
+  padding: 14px 20px;
+  box-shadow: var(--shadow);
+  min-width: 260px;
+}
+
+/* =============================
+   Avatar
+   ============================= */
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #c8e8f5;
+  flex-shrink: 0;
+}
+
+.avatar.small {
+  width: 62px;
+  height: 62px;
+  border-radius: var(--radius-sm);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =============================
+   Profile Info
+   ============================= */
+.profile-info {
+  color: var(--white);
+}
+
+.profile-name {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.profile-email {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-top: 2px;
+}
+
+.profile-major {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-top: 1px;
+}
+
+/* =============================
+   Main Content
+   ============================= */
+.main-content {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* =============================
+   Matches Title
+   ============================= */
+.matches-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+
+/* =============================
+   Matches Grid
+   ============================= */
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* =============================
+   Match Card
+   ============================= */
+.match-card {
+  background-color: var(--orange);
+  border-radius: var(--radius-lg);
+  padding: 18px 16px 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.match-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* =============================
+   Match Header
+   ============================= */
+.match-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.match-header .profile-name {
+  font-size: 1.15rem;
+}
+
+/* =============================
+   Match Sections
+   ============================= */
+.match-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.section-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1rem;
+  color: var(--orange-text);
+  font-weight: 400;
+}
+
+/* =============================
+   Interest List
+   ============================= */
+.interest-list {
+  list-style: disc;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.interest-list li {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--orange-text);
+}
+
+/* =============================
+   Times List
+   ============================= */
+.times-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.day-label {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--orange-text);
+  margin-top: 4px;
+}
+
+.time-slots {
+  list-style: disc;
+  padding-left: 22px;
+}
+
+.time-slots li {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--orange-text);
+}
+
+/* =============================
+   Responsive
+   ============================= */
+@media (max-width: 1100px) {
+  .matches-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 16px;
+  }
+  .matches-grid {
+    grid-template-columns: 1fr;
+  }
+  .profile-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

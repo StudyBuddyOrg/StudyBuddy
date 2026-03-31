@@ -22,12 +22,14 @@ export class Student {
    * @param {string} studyType   - "quiet" | "social" | "mixed"
    * @param {string} major       - Free text, will be normalized before comparison.
    * @param {string[]} interests - Array of interest strings from a fixed list.
+   * @param {int} grade          - Represents the semester
    */
   constructor(
     timeRanges = {},
     studyType  = "mixed",
     major      = "",
-    interests  = []
+    interests  = [],
+    grade = 0
   ) {
     // Fill in any missing days with empty availability
     this.timeRanges = Object.fromEntries(
@@ -36,6 +38,7 @@ export class Student {
     this.studyType = studyType;
     this.major     = normalizeMajor(major);
     this.interests = interests.map(i => i.toLowerCase().trim());
+    this.grade = grade
   }
 }
 
@@ -140,6 +143,24 @@ function scoreInterests(a, b) {
   return intersection / union;
 }
 
+
+
+/**GRADE SCORE
+ * If the match is within a semester ahead or behind, full credit
+ * If the match is within 4 semesters ahead or behind, half credit
+ * Else, No credit
+ * Range 0.0 - 1.0
+ * */
+function scoreGrade(a, b){
+  if (a.grade<=(b.grade+1) && a.grade>=(b.grade-1)) 
+  {
+    return 1;
+  }
+  else if (a.grade<=(b.grade+4) || a.grade>=(b.grade-4)) return .5;
+  return 0
+
+}
+
 // ---------------------------------------------------------------------------
 // Composite compatibility score
 // ---------------------------------------------------------------------------
@@ -148,7 +169,8 @@ const WEIGHTS = {
   time:      0.45,
   studyType: 0.25,
   major:     0.20,
-  interests: 0.10,
+  interests: 0.05,
+  grade:     0.05
 };
 
 /**
@@ -163,16 +185,18 @@ function compatibility(a, b) {
   const studyType = scoreStudyType(a, b);
   const major     = scoreMajor(a, b);
   const interests = scoreInterests(a, b);
+  const grade = scoreGrade(a, b)
 
   const total =
     time      * WEIGHTS.time +
     studyType * WEIGHTS.studyType +
     major     * WEIGHTS.major +
-    interests * WEIGHTS.interests;
+    interests * WEIGHTS.interests +
+    grade     * WEIGHTS.grade;
 
   return {
     total: Math.round(total * 100) / 100,
-    breakdown: { time, studyType, major, interests }
+    breakdown: { time, studyType, major, interests, grade}
   };
 }
 
@@ -209,28 +233,32 @@ const alice = new Student(
   { monday: [[900, 1200]], wednesday: [[900, 1200], [1400, 1700]], friday: [[1000, 1300]] },
   "quiet",
   "Computer Science",
-  ["reading", "chess", "programming"]
+  ["reading", "chess", "programming"],
+  0
 );
 
 const bob = new Student(
   { monday: [[1000, 1300]], wednesday: [[1500, 1800]] },
   "quiet",
   "Computer Science",
-  ["chess", "programming", "hiking"]
+  ["chess", "programming", "hiking"],
+  1
 );
 
 const carol = new Student(
   { tuesday: [[900, 1200]], thursday: [[1400, 1800]] },
   "social",
   "Psychology",
-  ["reading", "art"]
+  ["reading", "art"],
+  2
 );
 
 const dave = new Student(
   { monday: [[800, 1400]], wednesday: [[900, 1600]], friday: [[900, 1200]] },
   "mixed",
   "Data Science",
-  ["programming", "video games"]
+  ["programming", "video games"],
+  3
 );
 
 const pool = [bob, carol, dave];
@@ -238,5 +266,29 @@ const matches = findMatches(alice, pool);
 
 console.log("Matches for Alice:");
 matches.forEach(m => {
-  console.log(`  Score ${m.total} | Time: ${m.breakdown.time.toFixed(2)} | Type: ${m.breakdown.studyType} | Major: ${m.breakdown.major} | Interests: ${m.breakdown.interests.toFixed(2)}`);
+  console.log(`  Score ${m.total} | Time: ${m.breakdown.time.toFixed(2)} | Type: ${m.breakdown.studyType} | Major: ${m.breakdown.major} | Interests: ${m.breakdown.interests.toFixed(2)} | Grade: ${m.breakdown.grade}`);
+});
+
+const pool2 = [alice, carol, dave];
+const matches2 = findMatches(bob, pool2);
+
+console.log("Matches for Bob:");
+matches2.forEach(m => {
+  console.log(`  Score ${m.total} | Time: ${m.breakdown.time.toFixed(2)} | Type: ${m.breakdown.studyType} | Major: ${m.breakdown.major} | Interests: ${m.breakdown.interests.toFixed(2)} | Grade: ${m.breakdown.grade}`);
+});
+
+const pool3 = [bob, alice, dave];
+const matches3 = findMatches(carol, pool3);
+
+console.log("Matches for Carol:");
+matches3.forEach(m => {
+  console.log(`  Score ${m.total} | Time: ${m.breakdown.time.toFixed(2)} | Type: ${m.breakdown.studyType} | Major: ${m.breakdown.major} | Interests: ${m.breakdown.interests.toFixed(2)} | Grade: ${m.breakdown.grade}`);
+});
+
+const pool4 = [bob, carol, alice];
+const matches4 = findMatches(dave, pool4);
+
+console.log("Matches for Dave:");
+matches4.forEach(m => {
+  console.log(`  Score ${m.total} | Time: ${m.breakdown.time.toFixed(2)} | Type: ${m.breakdown.studyType} | Major: ${m.breakdown.major} | Interests: ${m.breakdown.interests.toFixed(2)} | Grade: ${m.breakdown.grade}`);
 });

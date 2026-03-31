@@ -92,3 +92,43 @@ body {
     text-decoration: none;
     font-weight: bold;
 }
+
+.stripebox {
+    width: 90px;
+    height: 100vh;
+    position: fixed;
+    align-self: baseline;
+    left: 2%;
+    display: flex;
+    gap: 5px;
+    transform: rotate(0deg);
+    z-index: -10;
+}
+
+.stripeduo {
+    width: 50px;
+    display: flex;
+    gap: 10px;
+    background-color: #F5EE9E;
+}
+
+.stripes {
+    height: 100%;
+    background-color: white;
+    width: 10px;
+}
+
+#redstripe {
+    background-color: #AB3428;
+    width: 20px;
+}
+
+#orangestripe {
+    background-color: #F49E4C;
+    width: 15px;
+}
+
+#bluestripe {
+    background-color: #3B8EA5;
+    width: 15px;
+}
