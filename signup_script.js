@@ -1,8 +1,19 @@
+console.log('signup_script.js loaded - before any imports');
+
 import { signUp } from './scripts/auth.mjs';
 import { addUser } from './scripts/crud.mjs';
 import SignupData from './scripts/user.js';
 
-document.getElementById('signupForm').addEventListener('submit', async function(event) {
+console.log('signup_script.js - all imports completed');
+
+const signupForm = document.getElementById('signupForm');
+if (!signupForm) {
+    console.error('signup_form not found. Ensure <form id="signupForm"> exists');
+} else {
+    console.log('signup_script: form found, adding submit handler');
+}
+
+signupForm?.addEventListener('submit', async function(event) {
     event.preventDefault();
 
     const messageDiv = document.getElementById('message');
@@ -18,14 +29,14 @@ document.getElementById('signupForm').addEventListener('submit', async function(
         const dob = document.getElementById('dob').value;
         const semester = document.getElementById('semester').value;
         const gender = document.getElementById('gender').value;
-        const major = document.querySelector('select').value; // Assuming the major select is the first one
+        const major = document.getElementById('major').value; // Assuming the major select is the first one
 
         // Study style
-        const studyStyle = document.querySelector('input[name="study"]:checked')?.parentElement.textContent.trim().toLowerCase().replace(' ', '_');
+        const studyStyle = document.querySelector('input[name="study"]:checked')?.parentElement?.textContent.trim().toLowerCase().replace(/\s+/g, '_') || '';
 
         // Interests
-        const interestsCheckboxes = document.querySelectorAll('input[type="checkbox"]:not([id])'); // Assuming interests are checkboxes without id
-        const interests = Array.from(interestsCheckboxes).filter(cb => cb.checked).map(cb => cb.parentElement.textContent.trim().toLowerCase().replace(' ', '_')).join(', ');
+        const interestsCheckboxes = document.querySelectorAll('#interests input[type="checkbox"]:checked');
+        const interests = Array.from(interestsCheckboxes).map(cb => cb.parentElement.textContent.trim().toLowerCase().replace(/\s+/g, '_'));
 
         // Time available - this is complex, need to collect from the day blocks
         const timeBlocks = document.querySelectorAll('.day-block');
@@ -37,7 +48,7 @@ document.getElementById('signupForm').addEventListener('submit', async function(
                 timeAvailable.push(`${day}: ${times.join(', ')}`);
             }
         });
-        const timeAvailible = timeAvailable.join('; ');
+        const timeAvailableString = timeAvailable.join('; ');
 
         // Create SignupData
         const signupData = new SignupData({
@@ -50,11 +61,12 @@ document.getElementById('signupForm').addEventListener('submit', async function(
             interests: interests,
             major: major,
             study_style: studyStyle,
-            time_availible: timeAvailible
+            time_availible: timeAvailableString
         });
 
         // Sign up
-        await signUp(email, password);
+        const user = await signUp(email, password);
+        if (!user) throw new Error('User creation failed');
 
         // Add user data to Firestore
         await addUser(signupData.get_signup_data());
@@ -63,9 +75,9 @@ document.getElementById('signupForm').addEventListener('submit', async function(
         messageDiv.textContent = "Account created successfully! Redirecting to login...";
 
         // Redirect to login
-        setTimeout(() => {
-            window.location.href = 'login.html';
-        }, 2000);
+        // setTimeout(() => {
+        //     window.location.href = 'login.html';
+        // }, 2000);
 
     } catch (error) {
         messageDiv.style.color = "red";

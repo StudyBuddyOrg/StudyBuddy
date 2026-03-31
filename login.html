@@ -12,7 +12,7 @@
         <h1 class="login-title">Login Page</h1>
         
         <div class="login-card">
-            <form id="loginForm" action="#">
+            <form id="login_form" action="#">
                 <div class="input-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
@@ -31,5 +31,37 @@
         </div>
         <p class="form-footer">Don't have an account? <a href="create_account.html">Create Account Page</a></p>
     </main>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword }
+        from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB4sFHwYgWueO2-ZKIvc3lmPfEGeKhVliQ",
+            authDomain: "studybuddy-b1e01.firebaseapp.com",
+            projectId: "studybuddy-b1e01",
+            storageBucket: "studybuddy-b1e01.firebasestorage.app",
+            messagingSenderId: "755708087089",
+            appId: "1:755708087089:web:fc187b3b121fbbf6063e10"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const form = document.getElementById("login_form");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            const pass = document.getElementById("password").value;
+
+            try {
+                await signInWithEmailAndPassword(auth, email, pass);
+                window.location.href = "index.html"; // hosted page
+            } catch (err) {
+                console.log(err.message);
+            }
+        });
+    </script>
 </body>
 </html>

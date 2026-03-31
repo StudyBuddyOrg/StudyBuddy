@@ -102,6 +102,16 @@ button{
 }
 
 </style>
+    <!-- Import Map for Firebase Modular SDK -->
+    <script type="importmap">
+    {
+      "imports": {
+        "firebase/app": "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js",
+        "firebase/auth": "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js",
+        "firebase/firestore": "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"
+      }
+    }
+    </script>
     <!-- Firebase SDK -->
     <script type="module" src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
@@ -147,7 +157,7 @@ button{
   </select>
 
   <label>Major</label>
-  <select>
+  <select id="major">
     <option value="">Select your major</option>
     <option>Accounting (B.S.)</option>
     <option>Advanced Vehicle Systems (B.S.)</option>
@@ -291,9 +301,9 @@ button{
   </select>
 
   <label>Study Preference</label>
-  <div class="option"><input type="radio" name="study">Quiet Time</div>
-  <div class="option"><input type="radio" name="study">Social/Chatty</div>
-  <div class="option"><input type="radio" name="study">Mixed</div>
+  <div class="option"><input type="radio" name="study" value="quiet_time">Quiet Time</div>
+  <div class="option"><input type="radio" name="study" value="social_chatty">Social/Chatty</div>
+  <div class="option"><input type="radio" name="study" value="mixed">Mixed</div>
 
   <label>Time(s) Available</label>
   <div class="grid-3">
@@ -342,7 +352,7 @@ button{
   </div>
 
   <label>Pick 6 interests:</label>
-  <div class="grid-3">
+  <div class="grid-3" id="interests">
     <div class="option"><input type="checkbox">History/Museums</div>
     <div class="option"><input type="checkbox">Concerts</div>
     <div class="option"><input type="checkbox">Fashion/Makeup</div>
@@ -367,12 +377,71 @@ button{
   </div>
 
   <button type="submit">Create Account</button>
+  <script type="module" src="signup_script.js"></script>
   </form>
   <div id="message"></div>
   <div class="footer"></div>
 </div>
 
-<script type="module" src="signup_script.js"></script>
+ <!-- <script type="module">
+    // --- Firebase SDK Imports ---
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+    import { 
+      getAuth, 
+      createUserWithEmailAndPassword 
+    } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+    import { 
+  getFirestore, 
+  doc, 
+  setDoc 
+} from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+    // --- Firebase Config (Replace with yours) ---
+    const firebaseConfig = {
+  apiKey: "AIzaSyB4sFHwYgWueO2-ZKIvc3lmPfEGeKhVliQ",
+  authDomain: "studybuddy-b1e01.firebaseapp.com",
+  projectId: "studybuddy-b1e01",
+  storageBucket: "studybuddy-b1e01.firebasestorage.app",
+  messagingSenderId: "755708087089",
+  appId: "1:755708087089:web:fc187b3b121fbbf6063e10"
+};
+
+    // --- Initialize ---
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // --- Form Handler ---
+    const form = document.getElementById("signup_form");
+    const errorBox = document.getElementById("error");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const pass = document.getElementById("password").value;
+
+      try {
+        const userCred = await createUserWithEmailAndPassword(auth, email, pass);
+        const user = userCred.user;
+
+        // User created successfully
+        console.log("User created:", userCred.user);
+
+        await setDoc(doc(db, "users", user.uid), {
+          email: email,
+          createdAt: new Date(),
+          // Add any other fields from your signup form (name, age, etc.)
+        });
+
+        // Redirect them to login or dashboard
+        window.location.href = "/login.html";
+      } 
+      catch (err) {
+        errorBox.textContent = err.message;
+      }
+    });
+  </script> -->
 
 </body>
 </html>

@@ -10,7 +10,7 @@ function requireUser() {
   return user;
 }
 
-async function addUser(userData) {
+export async function addUser(userData, document_name) {
   const user = requireUser();
   await setDoc(doc(db, "users", user.uid), userData);
 }
