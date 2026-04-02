@@ -74,10 +74,10 @@ signupForm?.addEventListener('submit', async function(event) {
         messageDiv.style.color = "green";
         messageDiv.textContent = "Account created successfully! Redirecting to login...";
 
-        // Redirect to login
-        // setTimeout(() => {
-        //     window.location.href = 'login.html';
-        // }, 2000);
+        Redirect to login
+        
+        window.location.href = 'login.html';
+        
 
     } catch (error) {
         messageDiv.style.color = "red";
